@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frenoa</title>
+  <title>FRENOA 프레노아 | 바르게 키운, 새로운 신선함.</title>
+  <meta name="description" content="새롭게 키운 자연의 신선함. 프레노아는 좋은 환경과 정직한 재배로 자연 본래의 맛과 신선함을 지켜냅니다.">
   <script>
     let savedTheme;
     try { savedTheme = localStorage.getItem('theme'); } catch {}
@@ -13,14 +14,43 @@
         : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   </script>
   <style>
-    :root { color-scheme: light; --background: #fff; --text: #172033; --border: #cbd5e1; --hover: #f1f5f9; }
-    :root[data-theme="dark"] { color-scheme: dark; --background: #111827; --text: #f3f4f6; --border: #64748b; --hover: #263247; }
+    :root { color-scheme: light; --background: #faf8f1; --text: #263e30; --muted: #626c5d; --border: #d6dccd; --hover: #eaeedf; --panel: #eff1e6; }
+    :root[data-theme="dark"] { color-scheme: dark; --background: #17231c; --text: #f0efdf; --muted: #b9c4b0; --border: #455442; --hover: #334431; --panel: #213025; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; padding: 32px; background: var(--background); color: var(--text); font-family: system-ui, sans-serif; }
-    .brand { margin: 0 48px; text-align: center; }
-    .brand-logo { margin: 0; font-size: clamp(22px, 5vw, 40px); font-weight: 800; line-height: 1.2; letter-spacing: 0.12em; text-indent: 0.12em; }
+    body { margin: 0; min-height: 100vh; background: var(--background); color: var(--text); font-family: "Malgun Gothic", system-ui, sans-serif; word-break: keep-all; overflow-wrap: break-word; }
+    .brand { padding: 28px 80px 24px; text-align: center; border-bottom: 1px solid var(--border); }
+    .brand-logo { margin: 0; font-family: Georgia, serif; font-size: clamp(24px, 5vw, 36px); font-weight: 400; line-height: 1.2; letter-spacing: 0.16em; text-indent: 0.16em; }
     .brand-name { margin: 8px 0 0; font-size: 14px; font-weight: 500; line-height: 1.5; letter-spacing: 0.18em; text-indent: 0.18em; }
-    main { padding-top: 48px; }
+    main { max-width: 1120px; margin: auto; padding: 0 32px; }
+    .hero { padding: 100px 0 88px; text-align: center; }
+    .eyebrow { margin: 0 0 24px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; }
+    h1, h2 { font-family: "Batang", "Noto Serif KR", serif; font-weight: 400; }
+    h1 { margin: 0; font-size: clamp(34px, 5.5vw, 64px); line-height: 1.45; letter-spacing: -0.055em; }
+    .hero-english { margin: 24px 0 0; font-family: Georgia, serif; font-size: clamp(17px, 2.5vw, 22px); font-style: italic; color: var(--muted); }
+    .hero-message { margin: 28px 0 0; font-size: 15px; line-height: 1.8; color: var(--muted); }
+    .story-link { display: inline-block; margin-top: 32px; padding: 12px 4px; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); font-size: 13px; }
+    .story-link:hover { color: var(--muted); }
+    .story-link:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
+    .meaning { display: grid; grid-template-columns: repeat(3, 1fr); padding: 36px 0; border-block: 1px solid var(--border); }
+    .meaning article { padding: 8px 24px; text-align: center; }
+    .meaning article + article { border-left: 1px solid var(--border); }
+    .meaning h2 { margin: 0 0 12px; font-family: Georgia, serif; font-size: 30px; }
+    .meaning p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .story { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; padding: 88px 0; }
+    .story h2 { margin: 0; font-size: clamp(28px, 3.5vw, 38px); line-height: 1.6; letter-spacing: -0.04em; }
+    .story-copy p { margin: 0 0 22px; font-size: 15px; line-height: 2; color: var(--muted); }
+    .story-copy p:last-child { margin-bottom: 0; color: var(--text); }
+    .promise { padding: 48px 24px; background: var(--panel); text-align: center; border-radius: 2px; }
+    .promise p { margin: 0; font-family: "Batang", serif; font-size: clamp(20px, 3vw, 30px); line-height: 1.7; }
+    footer { margin-top: 64px; padding: 28px 24px; text-align: center; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); letter-spacing: 0.12em; }
+    @media (max-width: 600px) {
+      main { padding: 0 24px; }
+      .hero { padding: 64px 0 56px; }
+      .meaning { grid-template-columns: 1fr; padding: 8px 0; }
+      .meaning article { padding: 24px 8px; }
+      .meaning article + article { border-left: 0; border-top: 1px solid var(--border); }
+      .story { grid-template-columns: 1fr; gap: 28px; padding: 56px 0; }
+    }
     .theme-toggle { position: fixed; top: 20px; right: 20px; display: grid; place-items: center; width: 48px; height: 48px; padding: 12px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--background); cursor: pointer; }
     .theme-toggle:hover { background: var(--hover); }
     .theme-toggle:focus-visible { outline: 3px solid #3b82f6; outline-offset: 4px; }
@@ -39,7 +69,36 @@
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.2A9 9 0 0 1 10.8 3.1a9 9 0 1 0 10.1 10.1Z"/></svg>
   </button>
-  <main><h1>안녕</h1></main>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">FRESH · NEW · NATURE</p>
+      <h1 id="hero-title">바르게 키운,<br>새로운 신선함.</h1>
+      <p class="hero-english" lang="en">Naturally Grown. Honestly Fresh.</p>
+      <p class="hero-message">새롭게 키운 자연의 신선함.<br>자연의 맛에 정직한 마음을 더합니다.</p>
+      <a class="story-link" href="#story">프레노아의 이야기 <span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="meaning" aria-label="FRENOA 이름에 담긴 의미">
+      <article><h2 lang="en">Fresh</h2><p>자연 본래의 맛과 신선함</p></article>
+      <article><h2 lang="en">New</h2><p>더 좋은 내일을 위한 새로운 농업</p></article>
+      <article><h2 lang="en">Nature</h2><p>좋은 작물의 시작이 되는 자연</p></article>
+    </section>
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div>
+        <p class="eyebrow">OUR STORY</p>
+        <h2 id="story-title">좋은 것을 키우는<br>마음에서 시작합니다.</h2>
+      </div>
+      <div class="story-copy">
+        <p>프레노아는 좋은 농산물은 좋은 환경과 정직한 재배에서 시작된다고 믿습니다.</p>
+        <p>작물이 필요로 하는 빛과 물, 영양과 시간을 세심하게 살피며 자연이 가진 본래의 맛과 신선함을 지켜냅니다.</p>
+        <p>새로운 농업기술을 사용하지만 가장 중요한 것은 변하지 않습니다.</p>
+        <p>좋은 작물을 바르게 키우는 농부의 마음.<br>그것이 FRENOA입니다.</p>
+      </div>
+    </section>
+    <section class="promise" aria-label="프레노아의 핵심 메시지">
+      <p>새롭게 키운 자연의 신선함.</p>
+    </section>
+  </main>
+  <footer>FRENOA · 프레노아</footer>
   <script>
     const themeButton = document.querySelector('.theme-toggle');
     function updateLabel() {
