@@ -17,6 +17,9 @@
     :root[data-theme="dark"] { color-scheme: dark; --background: #111827; --text: #f3f4f6; --border: #64748b; --hover: #263247; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; padding: 32px; background: var(--background); color: var(--text); font-family: system-ui, sans-serif; }
+    .brand { margin: 0 48px; text-align: center; }
+    .brand-logo { margin: 0; font-size: clamp(22px, 5vw, 40px); font-weight: 800; line-height: 1.2; letter-spacing: 0.12em; text-indent: 0.12em; }
+    .brand-name { margin: 8px 0 0; font-size: 14px; font-weight: 500; line-height: 1.5; letter-spacing: 0.18em; text-indent: 0.18em; }
     main { padding-top: 48px; }
     .theme-toggle { position: fixed; top: 20px; right: 20px; display: grid; place-items: center; width: 48px; height: 48px; padding: 12px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--background); cursor: pointer; }
     .theme-toggle:hover { background: var(--hover); }
@@ -28,6 +31,10 @@
   </style>
 </head>
 <body>
+  <header class="brand" aria-label="FRENOA 프레노아">
+    <p class="brand-logo">FRENOA</p>
+    <p class="brand-name">프레노아</p>
+  </header>
   <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.2A9 9 0 0 1 10.8 3.1a9 9 0 1 0 10.1 10.1Z"/></svg>
