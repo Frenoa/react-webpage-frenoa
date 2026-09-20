@@ -1,5 +1,0 @@
-Generator: built-in image_gen
-Asset: frenoa-harvest.png
-Purpose: FRENOA conceptual brand image; not an actual farm or product photograph.
-
-Use case: photorealistic-natural. Asset type: wide landscape editorial photograph for FRENOA premium Korean produce brand website, 1536x1024 landscape. A carefully composed quiet still life of freshly harvested leafy greens, small ripe tomatoes and a few fresh radishes on a warm beige linen cloth in a shallow natural wooden harvest tray, softly blurred sunlit greenhouse foliage in the background. Authentic delicate leaf veins and subtle water droplets, restrained arrangement, tactile linen, gentle morning side light, natural shadows, warm honest fresh premium agricultural mood. Palette inspired by sage green #5B7D63, cream #F4EFE5, beige #D9C8A9, restrained tomato terracotta #C95C4B, deep green #354C3D. Main produce centered in middle of frame, generous breathing room, composition suitable for wide website crop and mobile. No people, no packaging, no text, no logos, no watermark, no collages, no exaggerated saturation.
