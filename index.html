@@ -18,18 +18,28 @@
     :root[data-theme="dark"] { color-scheme: dark; --background: var(--deep-green); --text: var(--cream); --muted: var(--beige); --border: var(--sage); --hover: var(--sage); --panel: var(--sage); }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--background); color: var(--text); font-family: "Malgun Gothic", system-ui, sans-serif; word-break: keep-all; overflow-wrap: break-word; }
-    .brand { --sunlight: var(--terracotta); padding: 24px 24px 28px; text-align: center; border-bottom: 1px solid var(--border); }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 32px; }
+    .brand { --sunlight: var(--terracotta); border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 1120px; margin: auto; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand-home { display: flex; align-items: center; gap: 16px; flex-shrink: 0; color: inherit; text-decoration: none; }
+    .brand-copy { text-align: left; }
+    .header-actions { display: flex; align-items: center; gap: 28px; }
+    .main-nav { display: flex; align-items: center; gap: 28px; }
+    .main-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); text-decoration: none; font-size: 13px; white-space: nowrap; text-underline-offset: 7px; }
+    .main-nav a:hover { text-decoration: underline; text-decoration-color: var(--terracotta); }
+    .brand-home:focus-visible, .main-nav a:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
     [data-theme="dark"] .brand { --sunlight: var(--beige); }
-    .brand-symbol { display: block; width: 60px; height: 64px; margin: 0 auto 18px; overflow: visible; }
+    .brand-symbol { display: block; flex-shrink: 0; width: 44px; height: 48px; overflow: visible; }
     .brand-symbol .symbol-sun { fill: none; stroke: var(--sunlight); stroke-width: 1.5; stroke-linecap: round; }
     .brand-symbol .symbol-leaf { fill: var(--sage); }
     .brand-symbol .symbol-stem { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
     .brand-symbol .symbol-seed { fill: currentColor; }
-    .brand-logo { display: flex; justify-content: center; align-items: baseline; gap: 0.26em; margin: 0; font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; line-height: 1.2; }
+    .brand-logo { display: flex; align-items: baseline; gap: 0.26em; margin: 0; font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.2; }
     .brand-letter-o { position: relative; }
     .brand-letter-o::after { content: ""; position: absolute; width: 0.2em; height: 0.34em; top: -0.16em; right: -0.03em; background: var(--sage); border-radius: 90% 0 90% 0; transform: rotate(22deg); }
-    .brand-name { margin: 10px 0 0; font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.28em; text-indent: 0.28em; }
-    .brand-tagline { margin: 9px 0 0; color: var(--muted); font-family: Georgia, serif; font-size: 12px; line-height: 1.5; letter-spacing: 0.06em; }
+    .brand-name { margin: 5px 0 0; font-size: 10px; font-weight: 400; line-height: 1.5; letter-spacing: 0.28em; }
+    .brand-tagline { margin: 4px 0 0; color: var(--muted); font-family: Georgia, serif; font-size: 10px; line-height: 1.5; letter-spacing: 0.06em; }
     main { max-width: 1120px; margin: auto; padding: 0 32px; }
     .hero { padding: 100px 0 88px; text-align: center; }
     .eyebrow { margin: 0 0 24px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; }
@@ -67,31 +77,56 @@
       .meaning article + article { border-left: 0; border-top: 1px solid var(--border); }
       .story { grid-template-columns: 1fr; gap: 28px; padding: 56px 0; }
     }
-    .theme-toggle { position: fixed; top: 20px; right: 20px; display: grid; place-items: center; width: 48px; height: 48px; padding: 12px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--background); cursor: pointer; }
+    .theme-toggle { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--background); cursor: pointer; }
     .theme-toggle:hover { background: var(--hover); }
     .theme-toggle:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 4px; }
     .theme-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .sun { display: none; }
     [data-theme="dark"] .sun { display: block; }
     [data-theme="dark"] .moon { display: none; }
+    @media (max-width: 800px) {
+      .header-inner { flex-wrap: wrap; gap: 18px; padding: 20px 24px 12px; }
+      .header-actions { display: contents; }
+      .main-nav { order: 1; width: 100%; justify-content: flex-end; gap: 24px; padding-top: 8px; border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 380px) {
+      .main-nav { justify-content: space-between; gap: 8px; }
+      .main-nav a { font-size: 12px; }
+      .brand-home { gap: 10px; }
+      .brand-logo { font-size: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <header class="brand" aria-label="FRENOA 프레노아">
+  <header class="brand" id="top" aria-label="FRENOA 프레노아">
+    <div class="header-inner">
+    <a class="brand-home" href="#top" aria-label="FRENOA 프레노아 홈">
     <svg class="brand-symbol" viewBox="0 0 64 68" aria-hidden="true" focusable="false">
       <path class="symbol-sun" d="M14 30a18 18 0 0 1 36 0M32 4V1M12 12l-3-3m43 3 3-3M6 29H2m56 0h4"/>
       <path class="symbol-leaf" d="M32 39C20 40 14 32 15 23c11 0 18 6 17 16ZM32 32c0-11 7-18 18-18 0 11-7 19-18 18Z"/>
       <path class="symbol-stem" d="M32 53V33m0 8-10-10m10 4 10-13"/>
       <path class="symbol-seed" d="M32 49c-11 0-16 6-16 10s7 7 16 7 16-3 16-7-5-10-16-10Z"/>
     </svg>
+    <div class="brand-copy">
     <p class="brand-logo" aria-label="FRENOA"><span aria-hidden="true">F</span><span aria-hidden="true">R</span><span aria-hidden="true">E</span><span aria-hidden="true">N</span><span class="brand-letter-o" aria-hidden="true">O</span><span aria-hidden="true">A</span></p>
     <p class="brand-name">프레노아</p>
     <p class="brand-tagline" lang="en">Naturally Grown.</p>
-  </header>
+    </div>
+    </a>
+    <div class="header-actions">
+      <nav class="main-nav" aria-label="주요 메뉴">
+        <a href="#story">브랜드 이야기</a>
+        <a href="#values">우리의 가치</a>
+        <a href="#promise">프레노아의 약속</a>
+      </nav>
   <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.2A9 9 0 0 1 10.8 3.1a9 9 0 1 0 10.1 10.1Z"/></svg>
   </button>
+    </div>
+    </div>
+  </header>
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow">FRESH · NEW · NATURE</p>
@@ -104,7 +139,7 @@
       <img src="assets/frenoa-harvest.png" width="1536" height="1024" loading="lazy" decoding="async" alt="따뜻한 아침 햇살 아래 베이지색 리넨을 깐 나무 상자에 담긴 잎채소, 토마토와 래디시">
       <figcaption><span>자연의 빛과 정성으로 채운 신선함.</span><span class="harvest-note">AI로 제작한 브랜드 이미지</span></figcaption>
     </figure>
-    <section class="meaning" aria-label="FRENOA 이름에 담긴 의미">
+    <section class="meaning" id="values" aria-label="FRENOA 이름에 담긴 의미">
       <article><h2 lang="en">Fresh</h2><p>자연 본래의 맛과 신선함</p></article>
       <article><h2 lang="en">New</h2><p>더 좋은 내일을 위한 새로운 농업</p></article>
       <article><h2 lang="en">Nature</h2><p>좋은 작물의 시작이 되는 자연</p></article>
@@ -121,7 +156,7 @@
         <p>좋은 작물을 바르게 키우는 농부의 마음.<br>그것이 FRENOA입니다.</p>
       </div>
     </section>
-    <section class="promise" aria-label="프레노아의 핵심 메시지">
+    <section class="promise" id="promise" aria-label="프레노아의 핵심 메시지">
       <p>새롭게 키운 자연의 신선함.</p>
     </section>
   </main>
