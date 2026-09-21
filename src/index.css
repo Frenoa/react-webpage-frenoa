@@ -49,12 +49,13 @@ h1,h2{word-break:keep-all}
 .section-heading .eyebrow{margin-bottom:24px}
 .section-heading h2{font-size:32px;margin-bottom:0}
 .section-heading>p{font-size:12px;color:var(--sage);margin-bottom:5px}
-.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+.value-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
 .value{border-top:1px solid var(--sage);padding:23px 0 0}
 .value-top{display:flex;justify-content:space-between;font-size:11px;color:var(--sage)}
 .value h3{font-family:Georgia,serif;font-size:54px;font-weight:400;letter-spacing:-2px;margin:33px 0 25px}
 .value h3 span{color:var(--terracotta)}
 .value h4{font-size:16px;font-weight:500;margin-bottom:13px}
+.value h4 span{display:inline-block;color:var(--sage);font-size:14px}
 .value>p{font-size:13px;color:var(--sage);max-width:300px;margin-bottom:0}
 .promise{background:var(--deep-green);text-align:center;color:var(--cream);padding:75px 24px 85px}
 .promise .eyebrow{color:var(--beige);margin-bottom:25px}
@@ -80,7 +81,7 @@ h1,h2{word-break:keep-all}
 .section-wrap{padding:75px 6%}
 .story{gap:7%}
 .story h2{font-size:32px}
-.value-grid{gap:23px}
+.value-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 23px}
 .section-heading h2{font-size:27px}
 .site-footer{gap:20px}
 }
