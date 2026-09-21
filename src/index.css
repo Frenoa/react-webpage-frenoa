@@ -14,8 +14,9 @@ h1,h2{word-break:keep-all}
 .skip-link{position:fixed;top:-70px;left:16px;padding:12px;background:var(--cream);z-index:10}
 .skip-link:focus{top:10px}
 .site-header{height:100px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid var(--beige)}
-.site-header nav{display:flex;gap:38px;font-size:13px}
-.site-header nav a:hover{color:var(--terracotta)}
+.site-header nav{display:flex;align-items:center;gap:32px;margin-left:auto;font-size:13px}
+.site-header nav a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;border-bottom:1px solid transparent}
+.site-header nav a:hover,.site-header nav a:focus-visible{color:var(--terracotta);border-bottom-color:var(--terracotta)}
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:680px}
 .hero-copy{padding:72px 9% 34px 12%;display:flex;flex-direction:column;align-items:flex-start}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;margin-bottom:35px}
@@ -72,7 +73,7 @@ h1,h2{word-break:keep-all}
 }
 
 @media(max-width:900px){.site-header{padding:0 5%;height:82px}
-.site-header nav{gap:22px;font-size:12px}
+.site-header nav{gap:18px;font-size:12px}
 .hero-copy{padding:50px 8%}
 .hero{min-height:590px}
 .hero-image{min-height:590px}
@@ -87,7 +88,7 @@ h1,h2{word-break:keep-all}
 }
 
 @media(max-width:600px){.site-header{height:auto;min-height:94px;flex-wrap:wrap;gap:18px;padding:19px 6%}
-.site-header nav{width:100%;justify-content:space-between;gap:12px;font-size:11px}
+.site-header nav{width:100%;justify-content:space-between;flex-wrap:wrap;gap:4px 10px;font-size:11px}
 .hero{grid-template-columns:1fr}
 .hero-copy{padding:42px 7% 30px}
 .eyebrow{font-size:9px;letter-spacing:1.6px;margin-bottom:25px}

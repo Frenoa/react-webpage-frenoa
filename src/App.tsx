@@ -4,9 +4,14 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">본문으로 바로가기</a>
-      <header className="site-header">
+      <header className="site-header" id="top">
         <BrandLogo />
-        <nav aria-label="주요 메뉴"><a href="#story">브랜드 이야기</a><a href="#values">우리의 철학</a><a href="#promise">프레노아의 약속 ↗</a></nav>
+        <nav aria-label="주요 메뉴">
+          <a href="#top">처음으로</a>
+          <a href="#story">브랜드 이야기</a>
+          <a href="#values">우리의 철학</a>
+          <a href="#promise">프레노아의 약속</a>
+        </nav>
       </header>
       <main id="main">
         <section className="hero" id="home" aria-labelledby="hero-title">
