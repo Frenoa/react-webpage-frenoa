@@ -1,25 +1,34 @@
 import BrandLogo from './BrandLogo'
+import { BrandPage, ServicesPage, ProductsPage } from './Pages'
+import './pages.css'
+
+const navigation = [
+  ['/', '홈'],
+  ['/about', '브랜드 이야기'],
+  ['/services', '서비스'],
+  ['/products', '우리의 제품'],
+] as const
 
 export default function App() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const currentPage = navigation.find(([href]) => href === path)
   return (
     <>
       <a className="skip-link" href="#main">본문으로 바로가기</a>
       <header className="site-header" id="top">
         <BrandLogo />
         <nav aria-label="주요 메뉴">
-          <a href="#top">처음으로</a>
-          <a href="#story">브랜드 이야기</a>
-          <a href="#values">우리의 철학</a>
-          <a href="#promise">프레노아의 약속</a>
+          {navigation.map(([href, label]) => <a key={href} href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
         </nav>
       </header>
       <main id="main">
+        {path === '/about' ? <BrandPage /> : path === '/services' ? <ServicesPage /> : path === '/products' ? <ProductsPage /> : !currentPage ? <section className="page-intro"><p className="eyebrow">FRENOA</p><h1>페이지를 찾을 수 없습니다.</h1><a className="text-link" href="/">홈으로 돌아가기 <span aria-hidden="true">↗</span></a></section> : <>
         <section className="hero" id="home" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow"><span className="sun-dot" aria-hidden="true" /> FRESH BY NATURE, FRENOA</p>
             <h1 id="hero-title">자연에서 시작한,<br />바르게 키운 <em>신선함.</em></h1>
             <p className="hero-description">자연에서 시작해, 바른 농업으로 완성하는 신선함.<br />프레노아는 자연의 본질을 지키는 스마트팜 농업 브랜드입니다.</p>
-            <a className="text-link" href="#story">우리의 이야기 만나보기 <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="/about">우리의 이야기 만나보기 <span aria-hidden="true">↗</span></a>
             <div className="hero-bottom"><span>Naturally Grown.<br />Honestly Fresh.</span><small>SCROLL TO DISCOVER ↓</small></div>
           </div>
           <div className="hero-image"><img src="/images/harvest.png" alt="따뜻한 햇살 아래 나무 상자에 담긴 싱그러운 잎채소와 토마토" fetchPriority="high" width="1536" height="1024" /><div className="image-label"><small>GROWN WITH CARE</small><span>자연을 담고, 진심을 기릅니다.</span></div><div className="round-seal" aria-hidden="true">FRESH &<i>honest</i>FRENOA</div></div>
@@ -43,8 +52,9 @@ export default function App() {
           ].map(([letters, name, title, description]) => <article className="value" key={name}><div className="value-top"><span>{letters} — {name}</span><span aria-hidden="true">↗</span></div><h3>{letters}<span>.</span></h3><h4>{name} <span>· {title}</span></h4><p>{description}</p></article>)}</div>
         </section>
         <section className="promise" id="promise" aria-labelledby="promise-title"><p className="eyebrow">03 — OUR PROMISE</p><img className="promise-symbol" src="/brand-symbol.svg" width="64" height="76" alt="씨앗에서 새싹으로, 햇빛을 향해 자라는 프레노아 심볼" /><h2 id="promise-title">새로운 기술 위에,<br />변하지 않는 농부의 마음.</h2><p>더 세심하게 살피고, 더 정직하게 키우겠습니다.<br />당신의 식탁에 자연의 좋은 맛이 닿도록.</p><span className="promise-english">Naturally Grown. Honestly Fresh.</span></section>
+        </>}
       </main>
-      <footer className="site-footer"><BrandLogo /><p>자연에서 시작해, 바른 농업으로 완성하는 신선함.</p><span>© {new Date().getFullYear()} FRENOA</span><a href="#home">맨 위로 ↑</a></footer>
+      <footer className="site-footer"><BrandLogo /><p>자연에서 시작해, 바른 농업으로 완성하는 신선함.</p><span>© {new Date().getFullYear()} FRENOA</span><a href="#top">맨 위로 ↑</a></footer>
     </>
   )
 }

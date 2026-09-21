@@ -1,0 +1,20 @@
+.page-intro{padding:90px 9% 80px;border-bottom:1px solid var(--beige);background:linear-gradient(125deg,var(--cream),#e6e8da)}
+.page-intro .eyebrow{color:var(--sage);margin-bottom:28px}
+.page-intro h1{max-width:900px;font-size:clamp(34px,4.3vw,62px);font-weight:400;line-height:1.5;letter-spacing:-2px;margin-bottom:26px}
+.page-description{font-size:16px;color:var(--sage);margin-bottom:0;max-width:720px}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.service-card{border-top:1px solid var(--sage);padding:30px 0 10px}
+.service-card>.eyebrow{display:block;margin-bottom:30px;color:var(--sage)}
+.service-card h3{font-size:25px;font-weight:400;word-break:keep-all;line-height:1.5;margin-bottom:18px}
+.service-card h4{font-size:15px;font-weight:500;margin-bottom:15px}
+.service-card p{font-size:14px;color:var(--sage);margin-bottom:0}
+.page-cta{margin-top:30px;padding:65px 9%;background:var(--beige);text-align:center}
+.page-cta h2{font-size:28px;font-weight:400;line-height:1.6}
+.product-feature{display:grid;grid-template-columns:1.15fr 1fr;gap:8%;align-items:center;padding-bottom:20px}
+.product-feature>img{display:block;width:100%;height:auto;aspect-ratio:1.1;object-fit:cover;border-radius:150px 150px 3px 3px}
+.product-copy h2{font-size:34px;font-weight:400;line-height:1.6;letter-spacing:-1px}
+.product-copy p{font-size:15px;color:var(--sage)}
+.product-copy .product-note{font-size:12px;border-top:1px solid var(--beige);padding-top:18px;margin-top:28px}
+main>.table-story:last-child{padding-bottom:90px}
+@media(max-width:900px){.page-intro{padding:70px 6%}.service-grid{gap:22px}.service-card h3{font-size:22px}.product-copy h2{font-size:28px}}
+@media(max-width:600px){.page-intro{padding:55px 7%}.page-intro h1{font-size:34px;letter-spacing:-1.5px}.page-description{font-size:14px}.service-grid{grid-template-columns:1fr;gap:28px}.service-card{padding-top:24px}.service-card>.eyebrow{margin-bottom:18px}.product-feature{grid-template-columns:1fr;gap:36px}.product-feature>img{border-radius:110px 110px 3px 3px}.product-copy h2{font-size:29px}.page-cta{padding:48px 7%}.page-cta h2{font-size:24px}main>.table-story:last-child{padding-bottom:60px}}
